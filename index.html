@@ -1,40 +1,66 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Central de Análise do Amor 💛</title>
-  <link rel="stylesheet" href="style.css">
-</head>
 
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Central de Análise do Amor 💛</title>
+<link rel="stylesheet" href="style.css">
+</head>
 <body>
 
-  <div class="background">
-    <div class="heart">💖</div>
-    <div class="heart">💗</div>
-    <div class="heart">💛</div>
-    <div class="rose">🌹</div>
-    <div class="rose">🌹</div>
+<div class="floating">💖 🌹 💛 🌹 💖</div>
+
+<div id="home" class="card">
+  <h1>Central de Análise do Amor 💛</h1>
+
+  <p>
+    Este sistema foi criado apenas com o objetivo de analisar o nível real dos seus sentimentos.
+  </p>
+
+  <p><strong>Responda com cuidado...🥸</strong></p>
+
+<small>⚠️ Nenhuma resposta aqui será usada contra você… eu acho.</small>
+
+  <button class="main-btn" onclick="abrirModal()">
+    Iniciar teste 💛
+  </button>
+</div>
+
+<div id="modal" class="modal">
+  <div class="modal-box">
+    <h2>Como funciona 💛</h2>
+
+```
+<p>
+  Você vai responder perguntas sobre nós dois e sobre a nossa história.
+  <br><br>
+  Cada resposta vai gerar pontos escondidos 😌
+  <br><br>
+  No final, o sistema vai mostrar um resultado baseado em como foi seu desempenho nas perguntas.
+</p>
+
+<button class="main-btn" onclick="iniciarJogo()">
+  Começar!
+</button>
+```
+
   </div>
+</div>
 
-  <div class="card">
+<div id="game" class="card hidden">
+  <div id="progress"></div>
+  <h2 id="question"></h2>
+  <div id="answers"></div>
+</div>
 
-    <h1>Central de Análise do Amor 💛</h1>
+<div id="result" class="card hidden">
+  <div id="heart">💖</div>
+  <div id="counter">0%</div>
+  <h1 id="resultText"></h1>
+</div>
 
-    <p class="text">
-      Este sistema foi criado apenas com o objetivo de analisar o nível real dos seus sentimentos.<br><br>
-      Responda com cuidado...🥸
-    </p>
+<script src="script.js"></script>
 
-    <p class="warning">
-      ⚠️ Nenhuma resposta aqui será usada contra você… eu acho.
-    </p>
-
-    <button onclick="começar()" class="btn">
-      Iniciar teste 💛
-    </button>
-
-  </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
