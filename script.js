@@ -136,31 +136,29 @@ estadoNao++;
 return;
 }
 
-if(estadoNao===1){
-nao.innerText="Sim";
-estadoNao++;
-return;
-}
-
-mostrarResultado();
-};
-
-sim.onclick=()=>{
-
-estadoSim++;
-
 if(estadoSim===1){
-sim.style.transform="translateX(40px)";
+
+sim.style.position="fixed";
+sim.style.top="20%";
+sim.style.left="60%";
+
 return;
 }
 
 if(estadoSim===2){
-sim.style.transform="translateX(-40px)";
+
+sim.style.top="70%";
+sim.style.left="15%";
+
 return;
 }
 
 if(estadoSim===3){
+
+sim.style.top="45%";
+sim.style.left="55%";
 sim.innerText="MUITO 💛";
+
 return;
 }
 
