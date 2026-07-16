@@ -1,128 +1,3164 @@
-:root{
---cream:#FFF8F0;
---rose:#9C2A22;
---gold:#DDBB3E;
---brown:#593B1F;
---green:#40632B;
+/* =====================================
+   RESET
+===================================== */
+
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
 }
 
-*{
-box-sizing:border-box;
+
+
+html {
+
+    scroll-behavior: smooth;
+
 }
 
-body{
-margin:0;
-min-height:100vh;
-font-family:Arial,sans-serif;
-background:linear-gradient(to bottom,var(--cream),#fff);
-display:flex;
-justify-content:center;
-align-items:center;
-overflow:hidden;
-padding:20px;
+
+
+body {
+
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+
+    font-family: "Georgia", serif;
+
+
+    background:#FFF8F0;
+
+
+    color:#593B1F;
+
+
 }
 
-.card{
-background:white;
-width:100%;
-max-width:430px;
-padding:25px;
-border-radius:24px;
-text-align:center;
-box-shadow:0 15px 40px rgba(0,0,0,.1);
-border:2px solid var(--gold);
-z-index:2;
+
+
+
+/* =====================================
+   CORES DO PROJETO
+===================================== */
+
+
+:root {
+
+
+    --creme:#FFF8F0;
+
+    --rosa:#9C2A22;
+
+    --girassol:#DDBB3E;
+
+    --marrom:#593B1F;
+
+    --verde:#40632B;
+
+    --branco:#ffffff;
+
+
 }
 
-h1,h2{
-color:var(--rose);
+
+
+
+
+/* =====================================
+   SISTEMA DE TELAS
+===================================== */
+
+
+.tela {
+
+
+    display:none;
+
+
+    min-height:100vh;
+
+
+    width:100%;
+
+
 }
 
-p,small{
-color:var(--brown);
+
+
+.tela.ativa {
+
+
+    display:flex;
+
+
 }
 
-.main-btn,
-.answer-btn{
-border:none;
-border-radius:14px;
-padding:14px;
-margin-top:12px;
-width:100%;
-font-size:16px;
-background:var(--gold);
-cursor:pointer;
+
+
+
+
+
+
+/* =====================================
+   TELA INICIAL
+===================================== */
+
+
+#tela-inicial {
+
+
+    flex-direction:column;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    text-align:center;
+
+
+    padding:30px 25px;
+
+
+
+    background:
+
+
+    radial-gradient(
+
+        circle at top,
+
+        rgba(221,187,62,.25),
+
+        transparent 35%
+
+    ),
+
+
+    var(--creme);
+
+
+
+    position:relative;
+
+
 }
 
-.answer-btn{
-margin:8px 0;
+
+
+
+
+
+
+/* =====================================
+   FLOR FLUTUANTE
+===================================== */
+
+
+.flor-flutuante {
+
+
+    position:absolute;
+
+
+    top:8%;
+
+
+    font-size:65px;
+
+
+
+    animation:
+
+    flutuar 5s ease-in-out infinite,
+
+
+    girar 7s linear infinite;
+
+
+
+    filter:
+
+    drop-shadow(
+
+    0 0 15px rgba(221,187,62,.5)
+
+    );
+
+
+
 }
 
-.hidden{
-display:none;
+
+
+
+@keyframes flutuar {
+
+
+    0%,100%{
+
+
+        transform:translateY(0);
+
+
+    }
+
+
+
+    50%{
+
+
+        transform:translateY(-20px);
+
+
+    }
+
+
 }
 
-.modal{
-position:fixed;
-inset:0;
-background:rgba(255,248,240,.95);
-display:none;
-justify-content:center;
-align-items:center;
-padding:20px;
-z-index:99;
+
+
+
+
+@keyframes girar {
+
+
+    0%{
+
+
+        rotate:0deg;
+
+
+    }
+
+
+
+    50%{
+
+
+        rotate:8deg;
+
+
+    }
+
+
+
+    100%{
+
+
+        rotate:0deg;
+
+
+    }
+
+
 }
 
-.modal-box{
-background:white;
-padding:25px;
-border-radius:24px;
-max-width:420px;
-width:100%;
-text-align:center;
+
+
+
+
+
+
+/* =====================================
+   TEXTO INICIAL
+===================================== */
+
+
+.introducao {
+
+
+    max-width:420px;
+
+
+    animation:
+
+    aparecer 1.3s ease;
+
+
 }
 
-#progress{
-margin-bottom:20px;
-font-weight:bold;
-color:var(--green);
+
+
+.introducao h1 {
+
+
+    color:var(--rosa);
+
+
+    font-size:
+
+    clamp(
+
+    2rem,
+
+    8vw,
+
+    3rem
+
+    );
+
+
+    line-height:1.2;
+
+
+    margin-bottom:15px;
+
+
 }
 
-#heart{
-font-size:90px;
+
+
+.introducao h2 {
+
+
+    font-size:1.2rem;
+
+
+    font-weight:normal;
+
+
+    margin-bottom:25px;
+
+
 }
 
-#counter{
-font-size:48px;
-font-weight:bold;
-color:var(--rose);
+
+
+.frase-inicial {
+
+
+    line-height:1.7;
+
+
+    font-size:1rem;
+
+
+    margin-bottom:35px;
+
+
 }
 
-.floating{
-position:fixed;
-inset:0;
+
+
+
+
+
+
+
+/* =====================================
+   BOTÕES
+===================================== */
+
+
+button {
+
+
+    font-family:inherit;
+
+
+    border:none;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+
+#botao-entrar,
+
+
+#botao-final {
+
+
+    padding:15px 35px;
+
+
+    border-radius:40px;
+
+
+
+    background:
+
+
+    linear-gradient(
+
+    135deg,
+
+    #9C2A22,
+
+    #c9574d
+
+    );
+
+
+
+    color:white;
+
+
+
+    font-size:1rem;
+
+
+
+    box-shadow:
+
+
+    0 10px 25px rgba(156,42,34,.25);
+
+
+
+    transition:.3s;
+
+
+
+}
+
+
+
+#botao-entrar:active,
+
+
+#botao-final:active {
+
+
+    transform:scale(.94);
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   TELA JARDIM
+===================================== */
+
+
+#tela-jardim {
+
+
+    flex-direction:column;
+
+
+    align-items:center;
+
+
+    padding:20px;
+
+
+    background:
+
+
+    linear-gradient(
+
+    180deg,
+
+    #FFF8F0,
+
+    #f2dfc5
+
+    );
+
+
+}
+
+
+
+
+
+
+.cabecalho-jardim {
+
+
+    width:100%;
+
+
+    text-align:center;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+.cabecalho-jardim h2 {
+
+
+    color:var(--rosa);
+
+
+    font-size:1.7rem;
+
+
+}
+
+
+
+
+
+/* =====================================
+   CONTADOR
+===================================== */
+
+
+.contador-container {
+
+
+    background:
+
+    rgba(255,255,255,.7);
+
+
+
+    padding:12px;
+
+
+    border-radius:20px;
+
+
+    box-shadow:
+
+    0 5px 15px rgba(0,0,0,.08);
+
+
+}
+
+
+
+
+#contador {
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    gap:8px;
+
+
+    flex-wrap:wrap;
+
+
+    margin-top:8px;
+
+
+}
+
+
+
+#contador span {
+
+
+    font-size:.85rem;
+
+
+}
+
+/* =====================================
+   JARDIM
+===================================== */
+
+
+#jardim {
+
+    position:relative;
+
+    width:100%;
+
+    max-width:500px;
+
+    height:65vh;
+
+    min-height:420px;
+
+    overflow:hidden;
+
+    border-radius:35px;
+
+
+    background:
+
+    radial-gradient(
+        circle at 20% 20%,
+        rgba(255,255,255,.18),
+        transparent 25%
+    ),
+
+    radial-gradient(
+        circle at 80% 70%,
+        rgba(0,0,0,.12),
+        transparent 30%
+    ),
+
+    linear-gradient(
+        135deg,
+        #7fa35b,
+        #507b3b
+    );
+
+
+    box-shadow:
+
+    inset 0 0 50px rgba(0,0,0,.15),
+
+    0 15px 35px rgba(64,99,43,.25);
+
+}
+
+
+
+
+#jardim::before {
+
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+
+    background:
+
+    radial-gradient(
+        ellipse,
+        rgba(255,255,255,.12)
+        1px,
+        transparent 2px
+    );
+
+
+    background-size:
+
+    28px 35px;
+
+
+    opacity:.35;
+
+
+    pointer-events:none;
+
+
+}
+
+
+
+#jardim::after {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    inset:0;
+
+
+    background:
+
+    linear-gradient(
+        110deg,
+        transparent 40%,
+        rgba(255,255,255,.08),
+        transparent 60%
+    );
+
+
+    animation:
+
+    vento 8s infinite;
+
+
+    pointer-events:none;
+
+
+}
+
+
+
+
+@keyframes vento {
+
+
+    0%{
+
+        transform:
+        translateX(-100%);
+
+    }
+
+
+    50%{
+
+        transform:
+        translateX(100%);
+
+    }
+
+
+    100%{
+
+        transform:
+        translateX(100%);
+
+    }
+
+
+}
+
+
+
+
+/* =====================================
+   FLORES BASE
+===================================== */
+
+
+.flor {
+
+
+    position:absolute;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+
+    width:45px;
+
+
+    height:45px;
+
+
+
+    font-size:32px;
+
+
+
+    user-select:none;
+
+
+
+    animation:
+
+    nascer .8s ease forwards;
+
+
+
+    z-index:2;
+
+
+
+}
+
+
+
+
+
+@keyframes nascer {
+
+
+    from{
+
+
+        opacity:0;
+
+
+        transform:
+
+        scale(0);
+
+
+    }
+
+
+
+    to{
+
+
+        opacity:1;
+
+
+        transform:
+
+        scale(1);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   FLORES NORMAIS
+===================================== */
+
+
+.flor.normal {
+
+
+    cursor:default;
+
+
+    filter:
+
+
+    drop-shadow(
+
+    0 3px 3px rgba(0,0,0,.15)
+
+    );
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   FLORES ESPECIAIS
+===================================== */
+
+.flor.especial {
+
+
+    cursor:pointer;
+
+
+    z-index:10;
+
+
+    visibility:hidden;
+
+
+}
+
+
+
+
+.flor.especial::after {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:75px;
+
+
+    height:75px;
+
+
+    border-radius:50%;
+
+
+
+    background:
+
+
+    radial-gradient(
+
+    circle,
+
+    rgba(221,187,62,.5),
+
+    transparent 70%
+
+    );
+
+
+
+    z-index:-1;
+
+
+    animation:
+
+    brilho 2.5s infinite;
+
+
+}
+
+
+
+
+
+
+@keyframes pulsar-especial {
+
+
+    0%,100%{
+
+
+        scale:1;
+
+
+    }
+
+
+    50%{
+
+
+        scale:1.12;
+
+
+    }
+
+
+}
+
+
+
+
+
+@keyframes brilho {
+
+
+    0%,100%{
+
+
+        opacity:.4;
+
+
+        scale:.8;
+
+
+    }
+
+
+
+    50%{
+
+
+        opacity:1;
+
+
+        scale:1.3;
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================
+   MODAL DAS CARTAS
+===================================== */
+
+
+.modal {
+
+
+    position:fixed;
+
+
+    inset:0;
+
+
+
+    display:none;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+
+    padding:25px;
+
+
+
+    background:
+
+    rgba(0,0,0,.45);
+
+
+
+    z-index:50;
+
+
+}
+
+
+
+
+
+.modal.ativo {
+
+
+    display:flex;
+
+
+}
+
+
+
+
+
+
+.carta {
+
+
+    position:relative;
+
+
+    width:100%;
+
+
+    max-width:380px;
+
+
+    max-height:80vh;
+
+
+    overflow-y:auto;
+
+
+
+    padding:30px 25px;
+
+
+    border-radius:30px;
+
+
+
+    text-align:center;
+
+
+
+    background:#FFF8F0;
+
+
+
+    box-shadow:
+
+
+    0 20px 50px rgba(0,0,0,.3);
+
+
+
+    animation:
+
+    abrir-carta .5s ease;
+
+
+}
+
+
+
+
+
+
+@keyframes abrir-carta {
+
+
+    from{
+
+
+        opacity:0;
+
+
+        transform:
+
+        translateY(30px)
+
+        scale(.9);
+
+
+    }
+
+
+
+    to{
+
+
+        opacity:1;
+
+
+        transform:
+
+        translateY(0)
+
+        scale(1);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+#fechar-carta {
+
+
+    position:absolute;
+
+
+    right:18px;
+
+
+    top:12px;
+
+
+
+    background:none;
+
+
+
+    font-size:32px;
+
+
+
+    color:var(--rosa);
+
+
+}
+
+
+
+
+#contador-cartas {
+
+
+    color:#8a6a45;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+#emoji-carta {
+
+
+    font-size:45px;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+
+#titulo-carta {
+
+
+    color:var(--rosa);
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+
+#texto-carta {
+
+
+    line-height:1.8;
+
+
+    font-size:1rem;
+
+
+}
+
+/* =====================================
+   GIRASSOL FINAL
+===================================== */
+
+
+.girassol-container {
+
+
+    position:fixed;
+
+
+    inset:0;
+
+
+
+    display:none;
+
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+
+    flex-direction:column;
+
+
+
+    background:
+
+
+    rgba(255,248,240,.96);
+
+
+
+    z-index:100;
+
+
+
+}
+
+
+
+
+
+.girassol-container.ativo {
+
+
+    display:flex;
+
+
+
+    animation:
+
+    aparecer 1s ease;
+
+
+}
+
+
+
+
+
+
+
+.mensagem-completa {
+
+
+    text-align:center;
+
+
+    padding:30px;
+
+
+}
+
+
+
+.mensagem-completa p {
+
+
+    font-size:1.2rem;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+
+
+#girassol-gigante {
+
+
+    font-size:120px;
+
+
+    cursor:pointer;
+
+
+    opacity:0;
+
+
+    transform:scale(0);
+
+
+}
+
+
+
+
+
+@keyframes nascer-girassol {
+
+
+    0%{
+
+
+        opacity:0;
+
+
+        transform:
+
+        scale(0)
+
+        rotate(-30deg);
+
+
+    }
+
+
+
+    70%{
+
+
+        transform:
+
+        scale(1.15)
+
+        rotate(10deg);
+
+
+    }
+
+
+
+    100%{
+
+
+        opacity:1;
+
+
+        transform:
+
+        scale(1)
+
+        rotate(0);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+@keyframes brilho-girassol {
+
+
+    0%,100%{
+
+
+        filter:
+
+        drop-shadow(
+
+        0 0 10px #DDBB3E
+
+        );
+
+
+    }
+
+
+
+    50%{
+
+
+        filter:
+
+        drop-shadow(
+
+        0 0 35px #DDBB3E
+
+        );
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   TELA FINAL
+===================================== */
+
+
+#tela-final {
+
+
+    flex-direction:column;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+
+    text-align:center;
+
+
+    padding:35px 25px;
+
+
+
+    background:
+
+
+    linear-gradient(
+
+    180deg,
+
+    #FFF8F0,
+
+    #f3dfc5
+
+    );
+
+
+
+}
+
+
+
+
+
+.mensagem-final {
+
+
+    max-width:430px;
+
+
+    animation:
+
+    aparecer 1.5s ease;
+
+
+}
+
+
+
+
+
+.flor-final {
+
+
+    font-size:80px;
+
+
+    margin-bottom:25px;
+
+
+
+    animation:
+
+    flutuar 5s infinite;
+
+
+}
+
+
+
+
+
+
+
+.mensagem-final h1 {
+
+
+    color:var(--rosa);
+
+
+
+    font-size:
+
+    clamp(
+
+    1.8rem,
+
+    7vw,
+
+    2.5rem
+
+    );
+
+
+
+    line-height:1.3;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+
+.mensagem-final p {
+
+
+    line-height:1.8;
+
+
+    font-size:1rem;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   ANIMAÇÃO GERAL
+===================================== */
+
+
+@keyframes aparecer {
+
+
+    from{
+
+
+        opacity:0;
+
+
+        transform:
+
+        translateY(25px);
+
+
+    }
+
+
+
+    to{
+
+
+        opacity:1;
+
+
+        transform:
+
+        translateY(0);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   RESPONSIVIDADE
+===================================== */
+
+
+@media(max-width:380px){
+
+
+
+    .flor-flutuante{
+
+
+        font-size:50px;
+
+
+    }
+
+
+
+
+    .introducao h1{
+
+
+        font-size:1.8rem;
+
+
+    }
+
+
+
+
+    #jardim{
+
+
+        height:58vh;
+
+
+        min-height:350px;
+
+
+    }
+
+
+
+
+
+    .flor{
+
+
+        width:38px;
+
+
+        height:38px;
+
+
+        font-size:27px;
+
+
+    }
+
+
+
+
+    #girassol-gigante{
+
+
+        font-size:90px;
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+@media(min-width:700px){
+
+
+
+    #jardim{
+
+
+        height:600px;
+
+
+    }
+
+
+}
+
+.inseto {
+
+
+position:absolute;
+
+
+z-index:5;
+
+
 pointer-events:none;
-opacity:.25;
-font-size:34px;
-display:flex;
-justify-content:space-around;
-align-items:center;
-animation:float 6s infinite ease-in-out;
+
+
 }
 
-@keyframes float{
+
+
+.borboleta {
+
+
+font-size:22px;
+
+
+animation:
+
+voar 12s linear infinite;
+
+
+}
+
+
+
+.borboleta.dois {
+
+
+font-size:18px;
+
+
+animation-duration:16s;
+
+
+animation-delay:4s;
+
+
+}
+
+
+
+
+
+.vaga-lume {
+
+
+font-size:16px;
+
+
+animation:
+
+piscar 3s infinite;
+
+
+}
+
+
+
+
+
+@keyframes voar {
+
+
+0%{
+
+left:-10%;
+
+top:30%;
+
+transform:
+rotate(10deg);
+
+}
+
+
+
+25%{
+
+top:20%;
+
+}
+
+
+
 50%{
-transform:translateY(-15px);
-}
+
+top:45%;
+
 }
 
-.explode{
-animation:boom 1.5s forwards;
+
+
+75%{
+
+top:25%;
+
 }
 
-@keyframes boom{
+
+
 100%{
-transform:translateY(-300px) rotate(720deg) scale(2);
-opacity:0;
+
+left:110%;
+
+top:35%;
+
+transform:
+rotate(-10deg);
+
 }
+
+
+
+}
+
+
+
+
+
+@keyframes piscar {
+
+
+0%,100%{
+
+
+opacity:.2;
+
+
+}
+
+
+50%{
+
+
+opacity:1;
+
+
+}
+
+
+}
+
+.flor.normal {
+
+
+    animation:
+
+    nascer-flor 0.8s ease forwards;
+
+
+}
+
+
+
+
+
+@keyframes nascer-flor {
+
+
+    from {
+
+
+        opacity:0;
+
+
+        transform:
+
+        translateY(20px)
+
+        scale(0);
+
+
+
+    }
+
+
+
+    to {
+
+
+        opacity:1;
+
+
+        transform:
+
+        translateY(0)
+
+        scale(1);
+
+
+
+    }
+
+
+
+}
+
+/* =====================================
+   EFEITO SUAVE AO ABRIR MEMÓRIA
+===================================== */
+
+
+.flor.abrindo {
+
+
+    z-index:30;
+
+
+    animation:
+
+    lembranca-flor 0.8s ease;
+
+
+}
+
+
+
+.flor.abrindo::after {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:70px;
+
+
+    height:70px;
+
+
+    border-radius:50%;
+
+
+
+    background:
+
+    radial-gradient(
+
+    circle,
+
+    rgba(221,187,62,0.7),
+
+    transparent 70%
+
+    );
+
+
+
+    animation:
+
+    brilho-flor 0.8s ease;
+
+
+
+}
+
+
+
+
+
+
+@keyframes lembranca-flor {
+
+
+    0%{
+
+
+        transform:
+
+        translate(-50%, -50%)
+
+        scale(1)
+
+        rotate(0deg);
+
+
+
+    }
+
+
+
+    50%{
+
+
+        transform:
+
+        translate(-50%, -50%)
+
+        scale(1.18)
+
+        rotate(8deg);
+
+
+
+    }
+
+
+
+    100%{
+
+
+        transform:
+
+        translate(-50%, -50%)
+
+        scale(1)
+
+        rotate(0deg);
+
+
+
+    }
+
+
+}
+
+
+
+
+
+@keyframes brilho-flor {
+
+
+    0%{
+
+
+        opacity:0;
+
+
+        transform:scale(.5);
+
+
+    }
+
+
+
+    50%{
+
+
+        opacity:1;
+
+
+        transform:scale(1.4);
+
+
+    }
+
+
+
+    100%{
+
+
+        opacity:0;
+
+
+        transform:scale(2);
+
+
+    }
+
+
+}
+/* =====================================
+   NASCIMENTO DAS FLORES ESPECIAIS
+===================================== */
+
+.flor.especial {
+
+
+    opacity:0;
+
+
+}
+
+
+
+.flor.especial.nascendo {
+
+
+    animation:
+
+    nascer-especial 1.2s ease forwards;
+
+
+}
+
+
+
+@keyframes nascer-especial {
+
+
+    0%{
+
+
+        opacity:0;
+
+
+        transform:
+
+        translate(-50%, -50%)
+
+        scale(0);
+
+
+
+    }
+
+
+
+    60%{
+
+
+        opacity:1;
+
+
+        transform:
+
+        translate(-50%, -50%)
+
+        scale(1.15);
+
+
+
+    }
+
+
+
+    100%{
+
+
+        opacity:1;
+
+
+        transform:
+
+        translate(-50%, -50%)
+
+        scale(1);
+
+
+
+    }
+
+
+}
+
+
+/* =====================================
+   ANIMAÇÃO CARTA DO JARDIM
+===================================== */
+
+
+#modal-carta {
+
+
+    opacity:0;
+
+
+    pointer-events:none;
+
+
+}
+
+
+
+#modal-carta.ativo {
+
+
+    opacity:1;
+
+
+    pointer-events:auto;
+
+
+}
+
+
+
+
+
+
+#modal-carta .carta {
+
+
+    transform:
+
+    translateY(40px)
+
+    scale(.85);
+
+
+
+    opacity:0;
+
+
+
+    transition:
+
+    transform .7s ease,
+
+    opacity .7s ease;
+
+
+
+}
+
+
+
+
+
+#modal-carta.ativo .carta {
+
+
+    transform:
+
+    translateY(0)
+
+    scale(1);
+
+
+
+    opacity:1;
+
+
+
+    animation:
+
+    aparecer-carta 1s ease;
+
+
+
+}
+
+
+
+
+
+
+
+@keyframes aparecer-carta {
+
+
+    0%{
+
+
+        transform:
+
+        translateY(60px)
+
+        scale(.8)
+
+        rotateX(20deg);
+
+
+
+        opacity:0;
+
+
+
+    }
+
+
+
+    60%{
+
+
+        transform:
+
+        translateY(-10px)
+
+        scale(1.03);
+
+
+
+    }
+
+
+
+    100%{
+
+
+        transform:
+
+        translateY(0)
+
+        scale(1);
+
+
+
+        opacity:1;
+
+
+
+    }
+
+
+
+}
+/* =====================================
+   TEXTO DA CARTA APARECENDO
+===================================== */
+
+
+#titulo-carta,
+#texto-carta {
+
+
+    opacity:0;
+
+
+    transform:
+
+    translateY(15px);
+
+
+
+}
+
+
+
+
+#modal-carta.ativo #titulo-carta {
+
+
+    animation:
+
+    aparecer-texto .6s ease forwards;
+
+
+    animation-delay:.5s;
+
+
+}
+
+
+
+
+
+#modal-carta.ativo #texto-carta {
+
+
+    animation:
+
+    aparecer-texto .8s ease forwards;
+
+
+    animation-delay:.8s;
+
+
+}
+
+
+
+
+
+@keyframes aparecer-texto {
+
+
+    from{
+
+
+        opacity:0;
+
+
+        transform:
+
+        translateY(15px);
+
+
+
+    }
+
+
+
+    to{
+
+
+        opacity:1;
+
+
+        transform:
+
+        translateY(0);
+
+
+
+    }
+
+
+}
+
+/* =====================================
+   VENTO SUAVE NO JARDIM
+===================================== */
+
+
+.flor {
+
+
+    transform-origin:
+
+    center bottom;
+
+
+
+}
+
+
+
+
+.flor.normal {
+
+
+    animation:
+
+
+    nascer .8s ease forwards,
+
+    vento-flor 5s ease-in-out infinite;
+
+
+    animation-delay:0s, 1s;
+
+
+
+}
+
+
+
+
+.flor.especial {
+
+
+    animation:
+
+
+    pulsar-especial 3s infinite,
+
+    vento-flor 5s ease-in-out infinite;
+
+
+    animation-delay:0s, 1s;
+
+
+
+}
+
+
+
+
+
+@keyframes vento-flor {
+
+
+
+    0%,100%{
+
+
+        rotate:0deg;
+
+
+
+    }
+
+
+
+    25%{
+
+
+        rotate:-3deg;
+
+
+
+    }
+
+
+
+    50%{
+
+
+        rotate:3deg;
+
+
+
+    }
+
+
+
+    75%{
+
+
+        rotate:-2deg;
+
+
+
+    }
+
+
+
+}
+/* =====================================
+   PÉTALAS LEVES PELO JARDIM
+===================================== */
+
+
+.petala-vento {
+
+
+    position:absolute;
+
+
+    width:8px;
+
+
+    height:8px;
+
+
+    background:#f3c8d3;
+
+
+    border-radius:50%;
+
+
+    opacity:.7;
+
+
+    pointer-events:none;
+
+
+    z-index:5;
+
+
+    animation:
+
+    voar-petala 9s linear infinite;
+
+
+
+}
+
+
+
+
+@keyframes voar-petala {
+
+
+    0%{
+
+
+        transform:
+
+        translate(-30px,-30px)
+
+        rotate(0deg);
+
+
+        opacity:0;
+
+
+    }
+
+
+
+    15%{
+
+
+        opacity:.8;
+
+
+    }
+
+
+
+    100%{
+
+
+        transform:
+
+        translate(180px,600px)
+
+        rotate(360deg);
+
+
+        opacity:0;
+
+
+    }
+
+
+
+}
+
+/* =====================================
+   CARTA COM APARÊNCIA DE PAPEL
+===================================== */
+
+
+.carta {
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        #fff8f0,
+
+        #f8ead8
+
+    );
+
+
+    border-radius:18px;
+
+
+    padding:30px 25px;
+
+
+    box-shadow:
+
+
+    0 20px 40px rgba(0,0,0,.18);
+
+
+
+    position:relative;
+
+
+    overflow:hidden;
+
+
+
+}
+
+
+
+
+/* textura suave do papel */
+
+
+.carta::before {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    inset:0;
+
+
+
+    background:
+
+
+    radial-gradient(
+
+    circle,
+
+    rgba(89,59,31,.08),
+
+    transparent 65%
+
+    );
+
+
+
+    pointer-events:none;
+
+
+
+}
+
+
+
+
+
+
+
+/* detalhe de papel */
+
+
+.carta::after {
+
+
+    content:"🌸";
+
+
+    position:absolute;
+
+
+    right:15px;
+
+
+    bottom:10px;
+
+
+    font-size:35px;
+
+
+    opacity:.18;
+
+
+
+}
+#girassol-final.ativo #girassol-gigante {
+
+
+    animation:
+
+
+    nascer-girassol 2s ease forwards,
+
+
+    brilho-girassol 3s infinite;
+
+
+
+}
+/* =====================================
+   AURA DOURADA DO GIRASSOL FINAL
+===================================== */
+
+
+#girassol-gigante {
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+
+#girassol-gigante::before {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:220px;
+
+
+    height:220px;
+
+
+    left:50%;
+
+
+    top:50%;
+
+
+    transform:
+
+    translate(-50%, -50%);
+
+
+
+    background:
+
+
+    radial-gradient(
+
+        circle,
+
+        rgba(221,187,62,.45),
+
+        transparent 70%
+
+    );
+
+
+
+    border-radius:50%;
+
+
+    z-index:-1;
+
+
+    animation:
+
+    aura-girassol 3s ease-in-out infinite;
+
+
+
+}
+
+
+
+
+
+@keyframes aura-girassol {
+
+
+    0%,100%{
+
+
+        scale:.85;
+
+
+        opacity:.5;
+
+
+    }
+
+
+
+    50%{
+
+
+        scale:1.15;
+
+
+        opacity:1;
+
+
+    }
+
+
+
+}
+/* =====================================
+   PARTICULAS DOURADAS
+===================================== */
+
+
+.particula-dourada {
+
+
+    position:absolute;
+
+
+    width:6px;
+
+
+    height:6px;
+
+
+    background:#DDBB3E;
+
+
+    border-radius:50%;
+
+
+    opacity:.8;
+
+
+    pointer-events:none;
+
+
+    z-index:3;
+
+
+    animation:
+
+    subir-particula 4s linear infinite;
+
+
+}
+
+
+
+
+
+@keyframes subir-particula {
+
+
+    0%{
+
+
+        transform:
+
+        translateY(30px)
+
+        scale(.5);
+
+
+        opacity:0;
+
+
+    }
+
+
+
+    20%{
+
+
+        opacity:1;
+
+
+    }
+
+
+
+    100%{
+
+
+        transform:
+
+        translateY(-180px)
+
+        scale(1.2);
+
+
+        opacity:0;
+
+
+    }
+
+
+
+}
+
+/* =====================================
+   MELHORIAS DA TELA INICIAL
+===================================== */
+
+
+/* luz suave no fundo */
+
+#tela-inicial::before {
+
+
+    content:"";
+
+
+    position:absolute;
+
+    pointer-events:none;
+
+    width:320px;
+
+
+    height:320px;
+
+
+    top:50%;
+
+
+    left:50%;
+
+
+    transform:
+
+    translate(-50%, -50%);
+
+
+
+    background:
+
+
+    radial-gradient(
+
+        circle,
+
+        rgba(221,187,62,.25),
+
+        transparent 70%
+
+    );
+
+
+
+    filter:blur(10px);
+
+
+    animation:
+
+    luz-inicial 5s ease-in-out infinite;
+
+
+
+}
+
+
+
+@keyframes luz-inicial {
+
+
+    0%,100%{
+
+
+        opacity:.5;
+
+
+        scale:.9;
+
+
+    }
+
+
+
+    50%{
+
+
+        opacity:1;
+
+
+        scale:1.1;
+
+
+    }
+
+
+}
+
+
+
+
+
+/* flor flutuante melhorada */
+
+
+.flor-flutuante {
+
+
+    filter:
+
+
+    drop-shadow(
+
+        0 10px 15px rgba(0,0,0,.15)
+
+    );
+
+
+    animation:
+
+
+    flutuar-flor 4s ease-in-out infinite;
+
+
+
+}
+
+
+
+
+
+@keyframes flutuar-flor {
+
+
+    0%,100%{
+
+
+        transform:
+
+        translateY(0)
+
+        rotate(-5deg);
+
+
+
+    }
+
+
+
+    50%{
+
+
+        transform:
+
+        translateY(-18px)
+
+        rotate(5deg);
+
+
+
+    }
+
+
+}
+
+
+
+
+
+
+/* botão mais delicado */
+
+
+#botao-entrar {
+
+
+    transition:.3s ease;
+
+
+}
+
+
+
+#botao-entrar:active {
+
+
+    transform:
+
+    scale(.94);
+
+
+
+}
+.flor-flutuante {
+
+    pointer-events:none;
+
+}
+
+.introducao {
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.flor-flutuante {
+
+    position:relative;
+
+    z-index:1;
+
+    pointer-events:none;
+
+}
+
+.contador-container h2 {
+
+    margin-bottom:10px;
+
+    text-align:center;
+
 }
