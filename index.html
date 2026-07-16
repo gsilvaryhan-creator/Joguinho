@@ -1,66 +1,576 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Central de Análise do Amor 💛</title>
-<link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        O jardim onde você floresce 🌻
+    </title>
+
+
+    <link rel="stylesheet" href="style.css">
+
 </head>
+
+
 <body>
 
-<div class="floating">💖 🌹 💛 🌹 💖</div>
 
-<div id="home" class="card">
-  <h1>Central de Análise do Amor 💛</h1>
+<audio id="musica-jardim" loop>
 
-  <p>
-    Este sistema foi criado apenas com o objetivo de analisar o nível real dos seus sentimentos.
-  </p>
+    <source src="music/musica.mp3" type="audio/mpeg">
 
-  <p><strong>Responda com cuidado...🥸</strong></p>
+</audio>
 
-<small>⚠️ Nenhuma resposta aqui será usada contra você… eu acho.</small>
 
-  <button class="main-btn" onclick="abrirModal()">
-    Iniciar teste 💛
-  </button>
+
+
+<!-- =================================
+     TELA INICIAL
+================================= -->
+
+
+<main id="tela-inicial" class="tela ativa">
+
+
+    <div class="flor-flutuante">
+
+        🌸
+
+    </div>
+
+
+
+    <section class="introducao">
+
+
+        <h1>
+            O jardim onde você floresce
+        </h1>
+
+
+
+        <h2>
+            feito para meu amor, Tainá
+        </h2>
+
+
+
+        <p class="frase-inicial">
+
+            Percebi que, de algum jeito,
+            as flores acabam falando sobre você.
+
+        </p>
+
+
+
+
+        <button id="botao-entrar">
+
+            Entrar no jardim
+
+        </button>
+
+
+
+    </section>
+
+
+
+</main>
+
+
+
+
+
+
+
+<!-- =================================
+     TELA DO JARDIM
+================================= -->
+
+
+<main id="tela-jardim" class="tela">
+
+<section class="cabecalho-jardim">
+
+
+    <div class="contador-container">
+
+
+        <h2>
+
+            Nosso jardim 🌻
+
+        </h2>
+
+
+            <p>
+
+                Desde que nos conhecemos:
+
+            </p>
+
+
+
+            <div id="contador">
+
+
+                <span>
+
+                    0 dias
+
+                </span>
+
+
+
+                <span>
+
+                    0 horas
+
+                </span>
+
+
+
+                <span>
+
+                    0 minutos
+
+                </span>
+
+
+
+                <span>
+
+                    0 segundos
+
+                </span>
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </section>
+
+
+
+
+
+
+    <!--
+        ÁREA PRINCIPAL DO JARDIM
+
+        As flores normais serão criadas
+        pelo JavaScript.
+
+        As flores especiais representam
+        as 11 cartas.
+    -->
+
+
+    <section id="jardim">
+
+<div class="inseto borboleta">
+🦋
 </div>
 
-<div id="modal" class="modal">
-  <div class="modal-box">
-    <h2>Como funciona 💛</h2>
 
-```
+<div class="inseto borboleta dois">
+🦋
+</div>
+
+
+<div class="inseto vaga-lume">
+✨
+</div>
+
+
+        <!-- FLORES ESPECIAIS -->
+
+<div class="flor especial" data-carta="1">
+    🌷
+</div>
+
+<div class="flor especial" data-carta="2">
+    🌸
+</div>
+
+<div class="flor especial" data-carta="3">
+    🌺
+</div>
+
+<div class="flor especial" data-carta="4">
+    🌼
+</div>
+
+<div class="flor especial" data-carta="5">
+    🌹
+</div>
+
+<div class="flor especial" data-carta="6">
+    🪻
+</div>
+
+<div class="flor especial" data-carta="7">
+    🌸
+</div>
+
+<div class="flor especial" data-carta="8">
+    🌷
+</div>
+
+<div class="flor especial" data-carta="9">
+    🌼
+</div>
+
+<div class="flor especial" data-carta="10">
+    🌺
+</div>
+
+<div class="flor especial" data-carta="11">
+    🌹
+</div>
+
+
+
+    </section>
+
+
+</main>
+
+
+
+
+
+
+<!-- =================================
+     MODAL DAS CARTAS
+================================= -->
+
+
+<section id="modal-carta" class="modal">
+
+
+    <article class="carta">
+
+
+        <button id="fechar-carta">
+
+            ×
+
+        </button>
+
+
+
+
+        <div id="contador-cartas">
+
+            0 de 11
+
+        </div>
+
+
+
+
+
+        <div id="emoji-carta">
+
+</div>
+
+
+
+
+
+        <h2 id="titulo-carta">
+
+            Título
+
+        </h2>
+
+
+
+
+
+        <p id="texto-carta">
+
+            Texto
+
+        </p>
+
+
+
+    </article>
+
+
+</section>
+
+
+
+
+<!-- =================================
+     DADOS DAS CARTAS
+================================= -->
+
+
+<script id="dados-cartas" type="application/json">
+
+
+[
+
+{
+"numero":1,
+"emoji":"🌷",
+"titulo":"Seu cabelo",
+"texto":"Eu reparo no seu cabelo cacheado e acho ele lindo. Tem uma beleza tão sua, daquelas que deixam você ainda mais especial sem nem precisar fazer esforço."
+},
+
+
+{
+"numero":2,
+"emoji":"🌸",
+"titulo":"Seus olhos",
+"texto":"Os seus olhos são grandes e brilhantes. Às vezes eu só paro para olhar e penso em como eles conseguem mostrar tanta coisa sem você dizer uma palavra."
+},
+
+
+{
+"numero":3,
+"emoji":"🌺",
+"titulo":"O seu sorriso",
+"texto":"O seu sorriso enorme é uma das coisas mais bonitas em você. Quando você sorri de verdade, parece que o resto do dia fica melhor junto."
+},
+
+
+{
+"numero":4,
+"emoji":"🌼",
+"titulo":"Minha pitucha",
+"texto":"Eu acho muito engraçado e fofo você ser tão pitucha. Você é pequenininha, mas ocupa um espaço gigantesco na minha vida. Eu não consigo imaginar minha rotina sem você nela."
+},
+
+
+{
+"numero":5,
+"emoji":"🌹",
+"titulo":"Quando você ri de mim",
+"texto":"Eu sempre reparo quando você ri das coisas que eu falo. Mesmo quando a piada não é lá essas coisas, sua risada faz eu achar que valeu a pena tentar."
+},
+
+
+{
+"numero":6,
+"emoji":"🌷",
+"titulo":"O jeito que você cuida",
+"texto":"Eu percebo como você é prestativa: você se importa, presta atenção e tenta ajudar. São coisas pequenas para muita gente, mas eu vejo e admiro muito em você."
+},
+
+
+{
+"numero":7,
+"emoji":"🎸",
+"titulo":"Baixo, não guitarra",
+"texto":"No começo, você sempre trocava baixo por guitarra e colocava a culpa no corretor. Eu fingia que ficava bravo e explicava que guitarra era som fino e baixo era som grosso. Até hoje eu acho engraçado lembrar disso, porque foi uma das nossas primeiras brincadeiras e uma das pequenas coisas que fizeram eu gostar ainda mais dos nossos momentos juntos."
+},
+
+
+{
+"numero":8,
+"emoji":"🌻",
+"titulo":"A cartinha de girassol",
+"texto":"Eu nunca vou esquecer da cartinha de girassol que você fez para mim. Ela é linda, mas o que eu mais amo nela é saber que você separou um tempo e colocou carinho em algo pensando em mim. É uma lembrança simples, mas que significa muito para mim."
+},
+
+
+{
+"numero":9,
+"emoji":"💻",
+"titulo":"As nossas calls",
+"texto":"Eu gosto muito dos nossos momentos simples, como as calls de vídeo enquanto eu cozinhava e você ia me ensinando tudo o que sabia. Mesmo sendo algo simples, são momentos que eu guardo com carinho."
+},
+
+
+{
+"numero":10,
+"emoji":"😂",
+"titulo":"As minhas piadinhas",
+"texto":"Eu sei que às vezes faço uma piadinha e deixo você meio brava. Mas é o meu jeito de brincar com você, de criar momentos bobos e arrancar um sorriso seu."
+},
+
+
+{
+"numero":11,
+"emoji":"🌱",
+"titulo":"O nosso caminho",
+"texto":"A gente ainda é novo e tem muita coisa para viver. Mas eu quero continuar passando por tudo isso com você, criando novas lembranças e cuidando daquilo que a gente tem."
+}
+
+
+]
+
+
+</script>
+
+
+
+
+
+
+
+<!-- =================================
+     GIRASSOL FINAL
+================================= -->
+
+
+<section id="girassol-final" class="girassol-container">
+
+
+
+    <div class="mensagem-completa">
+
+
+        <p>
+
+            Você encontrou todas as lembranças.
+
+        </p>
+
+
+
+        <div id="girassol-gigante">
+
+
+            🌻
+
+
+        </div>
+
+
+
+        <button id="botao-final">
+
+
+            Abrir minha mensagem
+
+
+        </button>
+
+
+
+    </div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<!-- =================================
+     TELA FINAL
+================================= -->
+
+
+<main id="tela-final" class="tela">
+
+
+
+    <section class="mensagem-final">
+
+
+
+        <div class="flor-final">
+
+            🌻
+
+        </div>
+
+
+
+
+        <h2>
+    Para você, minha princesinha🌹
+</h2>
+
+
 <p>
-  Você vai responder perguntas sobre nós dois e sobre a nossa história.
-  <br><br>
-  Cada resposta vai gerar pontos escondidos 😌
-  <br><br>
-  No final, o sistema vai mostrar um resultado baseado em como foi seu desempenho nas perguntas.
+
+Neste jardim, cada flor, cada detalhe e cada pequena parte dele existe porque, de alguma forma, me lembra você. Eu queria criar um lugar onde eu pudesse guardar um pouco do carinho que sinto, como se cada canto desse jardim carregasse um pedacinho daquilo que você representa para mim.
+
 </p>
 
-<button class="main-btn" onclick="iniciarJogo()">
-  Começar!
-</button>
-```
 
-  </div>
-</div>
+<p>
 
-<div id="game" class="card hidden">
-  <div id="progress"></div>
-  <h2 id="question"></h2>
-  <div id="answers"></div>
-</div>
+As flores representam as coisas bonitas que vejo em você: seu jeito, seu sorriso, sua risada, suas manias e todos aqueles pequenos detalhes que talvez você nem perceba, mas que fazem você ser tão especial para mim.
 
-<div id="result" class="card hidden">
-  <div id="heart">💖</div>
-  <div id="counter">0%</div>
-  <h1 id="resultText"></h1>
-</div>
+</p>
+
+
+<p>
+
+Eu gosto de você não apenas pelos grandes momentos, mas principalmente pelos pequenos. Pelas conversas, pelas mensagens, pelo jeito que você consegue deixar meus dias melhores mesmo estando longe.
+
+</p>
+
+
+<p>
+
+Espero que, quando você olhar para este jardim, consiga sentir um pouco do carinho que coloquei em cada parte dele. Que ele seja uma lembrança de que, mesmo estando longe, eu vou continuar pensando em você, torcendo por você e fazendo o meu melhor para que você sempre se sinta amada, importante e especial.
+
+</p>
+
+
+<p>
+
+Eu amo você💛
+
+</p>
+
+
+
+    </section>
+
+
+
+</main>
+
+
+
+
+<!-- =================================
+     ELEMENTOS AUXILIARES
+================================= -->
+
+
+<div id="particulas-jardim"></div>
+
+
+
+
+
+<!-- =================================
+     JAVASCRIPT PRINCIPAL
+================================= -->
+
 
 <script src="script.js"></script>
 
+
+
+
 </body>
+
 </html>
